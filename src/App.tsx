@@ -1,24 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { useLocation } from "react-router-dom";
+import SideBar from "./components/SideBar";
+import AllRoutes from "./pages/AllRoutes";
 
 function App() {
+  const location = useLocation();
+  const currentRoute = location.pathname;
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header className="bg-indigo-500 text-white p-4">
+        <h1 className="text-2xl font-bold">
+          {currentRoute === "/" ? "Contact Management App" : "Charts and Maps"}
+        </h1>
       </header>
+      <div className="flex w-full">
+        <div className="sticky top-0 h-screen">
+          <SideBar />
+        </div>
+        <div className="w-full">
+          <AllRoutes />
+        </div>
+      </div>
     </div>
   );
 }
