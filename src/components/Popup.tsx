@@ -16,7 +16,7 @@ interface PopupProps {
 
 const Popup: React.FC<PopupProps> = ({ close, el, isOpen }) => {
   const handleClose = () => {
-    // Call the close function when the button is clicked
+    
     close();
   };
 
