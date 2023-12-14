@@ -28,7 +28,6 @@ function ContactForm() {
   };
 
   function handleSave() {
-    // Create a new Contact object with a temporary ID
     const newContact = {
       id: Date.now(), 
       ...form,
