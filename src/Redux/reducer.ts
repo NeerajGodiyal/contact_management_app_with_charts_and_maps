@@ -1,6 +1,6 @@
 import { ADD_CONTACT, EDIT_CONTACT, REMOVE_CONTACT } from './actionTypes';
 
-// Define the Contact interface
+
 export interface Contact {
   id: number;
   first_name: string;
@@ -9,12 +9,12 @@ export interface Contact {
   status: string;
 }
 
-// Define the AppState interface
+
 interface AppState {
   contacts: Contact[];
 }
 
-// Parse contacts from localStorage or return an empty array if null
+
 const initialContacts: Contact[] = JSON.parse(localStorage.getItem("contacts") || "[]") as Contact[];
 
 const initialState: AppState = {
@@ -22,7 +22,7 @@ const initialState: AppState = {
 };
 
 const reducer = (state: AppState = initialState, action: any): AppState => {
-  // Define action handlers as an object
+
   const actionHandlers: Record<string, () => AppState> = {
     [ADD_CONTACT]: () => {
       let flag = 0;
@@ -103,7 +103,7 @@ const reducer = (state: AppState = initialState, action: any): AppState => {
     },
   };
 
-  // Use the action type to call the appropriate action handler
+
   if (actionHandlers[action.type]) {
     return actionHandlers[action.type]();
   }
